@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan Jonathan</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+        
+        :root {
+            --primary: #d4af37;
+            --secondary: #5c2c3d;
+            --light: #f9f6f0;
+            --dark: #2a1a1f;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        /* Animasi dasar */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideFromBottom {
+            from { 
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        /* Header */
+        .hero {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: fadeIn 2s ease-in-out;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: slideFromBottom 1.5s ease-out;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            animation: slideFromBottom 1.5s ease-out 0.3s both;
+        }
+        
+        .save-the-date {
+            background-color: var(--primary);
+            color: var(--dark);
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: slideFromBottom 1.5s ease-out 0.6s both;
+        }
+        
+        /* Floating hearts decor */
+        .floating-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .heart {
+            position: absolute;
+            opacity: 0;
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.7);
+            animation: float 3s infinite ease-in-out;
+        }
+        
+        /* Couple section */
+        .section {
+            padding: 80px 20px;
+            position: relative;
+        }
+        
+        .couple-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            animation: fadeIn 1.5s ease-out;
+        }
+        
+        .couple-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid var(--primary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .couple-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .couple-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .couple-info {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .couple-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .couple-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .couple-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: var(--secondary);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+            margin: 15px auto;
+        }
+        
+        /* Date section */
+        .date-section {
+            background-color: var(--secondary);
+            color: var(--light);
+            text-align: center;
+            padding: 80px 20px;
+        }
+        
+        .date-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 40px;
+            animation: fadeIn 1.5s ease-out;
+        }
+        
+        .date-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: fadeIn 1.5s ease-out 0.3s both;
+        }
+        
+        .date-card {
+            flex: 1;
+            min-width: 250px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .date-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .date-card-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .date-card-text {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .date-card-subtext {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        
+        /* Location section */
+        .location-map {
+            height: 400px;
+            background-color: #eee;
+            margin-top: 40px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .location-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* RSVP section */
+        .rsvp-section {
+            background-color: var(--light);
+            text-align: center;
+            padding: 80px 20px;
+        }
+        
+        .rsvp-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--dark);
+            padding: 15px 60px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            margin-top: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .rsvp-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: var(--light);
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .footer-text {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        /* Animasi scroll */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .date-title {
+                font-size: 2.2rem;
+            }
+            
+            .couple-name {
+                font-size: 2rem;
+            }
+            
+            .couple-title {
+                font-size: 1.2rem;
+            }
+            
+            .couple-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .couple-info {
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-image">
+            <img src="https://placehold.co/1920x1080" alt="Pasangan pengantin berdiri di tengah taman bunga dengan sinar matahari sore yang hangat" />
+        </div>
+        <div class="hero-overlay">
+            <h1 class="hero-title">TEMAN KAMI JONATHAN AKAN MENIKAH</h1>
+            <p class="hero-subtitle">Anda diundang untuk merayakan hari istimewa kami bersama-sama</p>
+            <div class="save-the-date">10 agustus 2025</div>
+        </div>
+        <div class="floating-hearts" id="floatingHearts"></div>
+    </section>
+    
+    <!-- Couple Section -->
+    <section class="section" id="couple">
+        <h2 class="section-title scroll-reveal">Pasangan Mempelai</h2>
+        <div class="couple-container">
+            <div class="scroll-reveal">
+                <div class="couple-image">
+                    <img src="https://placehold.co/600x600" alt="Pengantin pria tersenyum dengan setelan jas formal" />
+                </div>
+            </div>
+            <div class="couple-info">
+                <h3 class="couple-name scroll-reveal">Jonathan</h3>
+                <p class="couple-title scroll-reveal">Mempelai Pria</p>
+                <p class="couple-text scroll-reveal">MEREKA ADALAH PASANGAN YANG SANGAT ROMANTIS</p>
+            </div>
+        </div>
+        <div class="couple-container" style="margin-top: 80px;">
+            <div class="couple-info">
+                <h3 class="couple-name scroll-reveal">Felice</h3>
+                <p class="couple-title scroll-reveal">Mempelai Wanita</p>
+                <p class="couple-text scroll-reveal">MEREKA ADALAH PASANGAN YANG SANGAT ROMANTIS</p>
+            </div>
+            <div class="scroll-reveal" style="order: -1;">
+                <div class="couple-image">
+                    <img src="https://placehold.co/600x600" alt="Pengantin wanita mengenakan gaun pengantin putih dengan detail renda elegan" />
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Date Section -->
+    <section class="date-section" id="date">
+        <h2 class="date-title scroll-reveal">Hari Istimewa jonathan</h2>
+        <div class="date-container">
+            <div class="date-card scroll-reveal">
+                <h3 class="date-card-title">Akad Nikah</h3>
+                <p class="date-card-text">10 agustus 2025</p>
+                <p class="date-card-subtext">09:00 - 11:00 WIB</p>
+            </div>
+            <div class="date-card scroll-reveal">
+                <h3 class="date-card-title">Resepsi</h3>
+                <p class="date-card-text">10 agustus 2025</p>
+                <p class="date-card-subtext">12:00 - 15:00 WIB</p>
+            </div>
+            <div class="date-card scroll-reveal">
+                <h3 class="date-card-title">Setengah Hari</h3>
+                <p class="date-card-text">10 agustus 2025</p>
+                <p class="date-card-subtext">12:00 - besok pagi WIB</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Location Section -->
+    <section class="section" id="location">
+        <h2 class="section-title scroll-reveal">Lokasi Acara</h2>
+        <p class="couple-text scroll-reveal" style="text-align: center; max-width: 800px; margin: 0 auto 20px;">DI HOTEL YELLOW DEKET TRANSMART<br>
+            Jalan yang deket transmart
+        </p>
+        <div class="location-map scroll-reveal">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.81956135077861!3d-6.19416139549361!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f42d4b8652a1%3A0x3a2d7e87b27e5232!2sGrand%20Hyatt%20Jakarta!5e0!3m2!1sen!2sid!4v1621234567890!5m2!1sen!2sid" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+    
+    <!-- RSVP Section -->
+    <section class="rsvp-section" id="rsvp">
+        <h2 class="section-title scroll-reveal">Konfirmasi Kehadiran</h2>
+        <p class="couple-text scroll-reveal" style="text-align: center; max-width: 600px; margin: 0 auto 30px;">
+            Kami sangat bahagia jika Anda bisa hadir di hari istimewa kami.Mau kalian datang jam berapa pun gapapa karna pernikahan jonathan 24jam.mohon konfirmasikan kehadiran Anda sebelum 10 agustus 2025.
+        </p>
+        <a href="#rsvp-form" class="rsvp-button scroll-reveal">Konfirmasi Sekarang</a>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">Jonathan dan Felice</p>
+            <p class="footer-text">10 agustus 2025</p>
+            <p class="footer-text">Terima kasih telah menjadi bagian dari hari istimewa kami</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Floating hearts animation
+        function createHearts() {
+            const container = document.getElementById('floatingHearts');
+            const heartsCount = 15;
+            
+            for (let i = 0; i < heartsCount; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = Math.random() * 100 + 'vh';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heart.style.opacity = Math.random() * 0.5 + 0.1;
+                heart.style.transform = `scale(${Math.random() * 0.5 + 0.5})`;
+                container.appendChild(heart);
+            }
+        }
+        
+        // Scroll reveal animation
+        function scrollReveal() {
+            const elements = document.querySelectorAll('.scroll-reveal');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Initialize functions
+        window.addEventListener('load', createHearts);
+        window.addEventListener('scroll', scrollReveal);
+        
+        // Initial check in case elements are already visible
+        scrollReveal();
+    </script>
+</body>
+</html>
